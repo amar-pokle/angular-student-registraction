@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Angular Js</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+  <div ng-app="myApp" ng-controller="myCtrl">
+    <h2>Student Registraction</h2>
+    <table border="1">
+      <tr>
+        <td>Enter first name:</td>
+        <td><input type="text" ng-model="student.firstName"></td>
+      </tr>
+      <tr>
+        <td>Enter last name: </td>
+        <td><input type="text" ng-model="student.lastName"> </td>
+      </tr>
+      <tr>
+        <td>Enter Mobile Number: </td>
+        <td><input type="text" ng-model="student.mobile"> </td>
+      </tr>
+      <tr>
+        <td>Enter Age: </td>
+        <td><input type="text" ng-model="student.age"> </td>
+      </tr>
+      <tr>
+        <td>Enter Email-Id: </td>
+        <td><input type="text" ng-model="student.email"> </td>
+      </tr>
+      <tr>
+        <td>Enter Pin Code: </td>
+        <td><input type="text" ng-model="student.pincode"> </td>
+      </tr>
+      <tr>
+        <td>Enter Address: </td>
+        <td><input type="text" ng-model="student.address"> </td>
+      </tr>
+
+      <tr>
+        <td>Details</td>
+        <td>
+          <table>
+            <tr>
+              <td>Name: </td>
+              <td>{{student.fullName()}}</td>
+            </tr>
+            <tr>
+              <td>Mobile No: </td>
+              <td>{{student.mobileNo()}}</td>
+            </tr>
+            <tr>
+              <td>Email: </td>
+              <td>{{student.emailId()}}</td>
+            </tr>
+            <tr>
+              <td>age: </td>
+              <td>{{student.ageOf()}}</td>
+            </tr>
+            <tr>
+              <td>pincode: </td>
+              <td>{{student.pincodeOf()}}</td>
+            </tr>
+            <tr>
+              <td rowspan="2">Address: </td>
+              <td>{{student.addressOf()}}</t d>
+            </tr>
+
+
+          </table>
+
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+
+
+  <script>
+    var mainApp = angular.module("myApp", []);
+
+    mainApp.controller('myCtrl', function ($scope) {
+      $scope.student = {
+        firstName: "",
+        lastName: "",
+        mobile: "",
+        age: "",
+        email: "",
+        pincode: "",
+        address: "",
+
+
+        fullName: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.firstName + " " + studentObject.lastName;
+        },
+        mobileNo: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.mobile;
+        },
+        emailId: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.email;
+        },
+        ageOf: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.age;
+        },
+        pincodeOf: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.pincode;
+        },
+        addressOf: function () {
+          var studentObject;
+          studentObject = $scope.student;
+          return studentObject.address;
+        }
+      };
+    });
+  </script>
+
+</body>
+
+</html>
